@@ -149,8 +149,6 @@ Ball to wall collision is the simpliest and it should be completed first before 
 
 To determine if a ball needs to bounce off of a wall is straightforward. The window has a coordinate system with the upper left hand corner as the origin. If our window is 800 x 800, then the image below labels the coordinates for the four corners and the extremal values along the _X_ and _Y_ axis.
 
-![Window extents.](images/window_extents.png)
-
 With the window's extents (_Xmin_, _Xmax_, _Ymin_, _Ymax_), a ball's center and it's radius is all we need to determine if the ball is touching the window's boundary. Imagine a ball that is touching or overlapping the left edge of the window. This means that the ball's center's _x_ coordinate is within _radius_ units of _Xmin_. In other words, `ball.center.x - ball.radius <= Xmin`. If the ball was touching the right edge of the window, then `ball.center.x + ball.radius >= Xmax`. The same reasoning can be applied for the top and bottom boundaries.
 
 Once it is determined that the ball is touching or overlapping the left or right edges of the window, then you multiply the _x_ component of the ball's velocity by -1. If the ball is touching or overlapping the top or bottom edges of the window, then you multiply the _y_ component of the ball's velocity by -1.
@@ -160,8 +158,6 @@ Once it is determined that the ball is touching or overlapping the left or right
 Ball to ball collision is marginally more complicated than ball to wall bouncing. 
 
 To determine if two balls are touching or overlapping, calculate the distance from the center of one ball to the center of the other ball. If the distance between the two ball centers is less than or equal to (2 * radius), then the balls are touching or overlapping.
-
-![Two balls colliding.](images/balls_colliding.png)
 
 Th next step is to have the balls bounce. Consider the two circles in the figure above. _Circle A_ is touching _Circle B_ at a single point. Through that point is a tangent line. If we draw the radius from the center of _Circle A_ tot he collision point and draw the radius of _Circle B_ from the collision point to it's center, we would see a line segment that is perpendicular to the tangent line. This line segment is the direction the ball must bounch around.
 
