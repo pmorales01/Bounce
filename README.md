@@ -22,19 +22,31 @@ The scenes are:
 
 The _title scene_ is pictured below.
 
+![Title scene screenshot](images/title_screen_small.png)
+
 At a minimum, the _title scene_ must clearly show the title of the program. It is left to your discretion how the title is presented. It can be as sophisticated or as simple as you desire. To transition to the next scene, any key is pressed.
 
 The _bouncing scene_ is pictured below. There are colored balls which move linearly in the boundaries of the window. In this first screenshot, all the balls are alive and moving. Except for the zeroth ball, all the balls have a finite lifespan. Each time a ball collides with another ball, the ball's life diminishes until the ball is dead. Additionally, the zeroth ball moves at a speed faster than all the other balls in the scene.
+
+![Bouncing scene screen shot with all live, colored balls.](images/bounce_1_small.png)
 
 Should a ball collide with the boundaries of the window, the ball is reflected off the wall. Should a ball collide with another ball, the ball is reflected off the tangent line formed at the point of contact between the two balls.
 
 Each ball has a lifespan. Everytime a ball strikes another ball, it's lifespan decreases until the ball dies. When the ball dies, it's color changes to white and it's velocity becomes (0, 0). Any subsequent collision with a dead ball causes the dead ball to play an explosion animation.
 
+![Bouncing scene screen shot with a mix of live and dead balls.](images/bounce_2_small.png)
+
+![Bouncing scene screen shot with a ball striking a dead ball causing an explosion.](images/explosion_small.png)
+
 To help debug the program, each ball has a unique name. The ball's name can be displayed on the screen with a press of a button. An example of how the window will look is shown below. 
+
+![Bouncing scene screen shot with ball labels turned on.](images/debug_small.png)
 
 After a specific button is pressed, the _bouncing scene_ transitions to the _credits scene_.
 
 The _credits scene_ clearly presents information about the programmer and the contributors to the program. An example of a credit scene (which is missing information about the programmer) is shown below.
+
+![Program credits scene.](images/credits_small.png)
 
 Pressing any key from the _credits scene_ exits the program.
 
@@ -149,6 +161,8 @@ Ball to wall collision is the simpliest and it should be completed first before 
 
 To determine if a ball needs to bounce off of a wall is straightforward. The window has a coordinate system with the upper left hand corner as the origin. If our window is 800 x 800, then the image below labels the coordinates for the four corners and the extremal values along the _X_ and _Y_ axis.
 
+![Window extents.](images/window_extents.png)
+
 With the window's extents (_Xmin_, _Xmax_, _Ymin_, _Ymax_), a ball's center and it's radius is all we need to determine if the ball is touching the window's boundary. Imagine a ball that is touching or overlapping the left edge of the window. This means that the ball's center's _x_ coordinate is within _radius_ units of _Xmin_. In other words, `ball.center.x - ball.radius <= Xmin`. If the ball was touching the right edge of the window, then `ball.center.x + ball.radius >= Xmax`. The same reasoning can be applied for the top and bottom boundaries.
 
 Once it is determined that the ball is touching or overlapping the left or right edges of the window, then you multiply the _x_ component of the ball's velocity by -1. If the ball is touching or overlapping the top or bottom edges of the window, then you multiply the _y_ component of the ball's velocity by -1.
@@ -158,6 +172,8 @@ Once it is determined that the ball is touching or overlapping the left or right
 Ball to ball collision is marginally more complicated than ball to wall bouncing. 
 
 To determine if two balls are touching or overlapping, calculate the distance from the center of one ball to the center of the other ball. If the distance between the two ball centers is less than or equal to (2 * radius), then the balls are touching or overlapping.
+
+![Two balls colliding.](images/balls_colliding.png)
 
 Th next step is to have the balls bounce. Consider the two circles in the figure above. _Circle A_ is touching _Circle B_ at a single point. Through that point is a tangent line. If we draw the radius from the center of _Circle A_ tot he collision point and draw the radius of _Circle B_ from the collision point to it's center, we would see a line segment that is perpendicular to the tangent line. This line segment is the direction the ball must bounch around.
 
