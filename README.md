@@ -22,31 +22,19 @@ The scenes are:
 
 The _title scene_ is pictured below.
 
-![Title scene screenshot](images/title_screen_small.png)
-
 At a minimum, the _title scene_ must clearly show the title of the program. It is left to your discretion how the title is presented. It can be as sophisticated or as simple as you desire. To transition to the next scene, any key is pressed.
 
 The _bouncing scene_ is pictured below. There are colored balls which move linearly in the boundaries of the window. In this first screenshot, all the balls are alive and moving. Except for the zeroth ball, all the balls have a finite lifespan. Each time a ball collides with another ball, the ball's life diminishes until the ball is dead. Additionally, the zeroth ball moves at a speed faster than all the other balls in the scene.
-
-![Bouncing scene screen shot with all live, colored balls.](images/bounce_1_small.png)
 
 Should a ball collide with the boundaries of the window, the ball is reflected off the wall. Should a ball collide with another ball, the ball is reflected off the tangent line formed at the point of contact between the two balls.
 
 Each ball has a lifespan. Everytime a ball strikes another ball, it's lifespan decreases until the ball dies. When the ball dies, it's color changes to white and it's velocity becomes (0, 0). Any subsequent collision with a dead ball causes the dead ball to play an explosion animation.
 
-![Bouncing scene screen shot with a mix of live and dead balls.](images/bounce_2_small.png)
-
-![Bouncing scene screen shot with a ball striking a dead ball causing an explosion.](images/explosion_small.png)
-
 To help debug the program, each ball has a unique name. The ball's name can be displayed on the screen with a press of a button. An example of how the window will look is shown below. 
-
-![Bouncing scene screen shot with ball labels turned on.](images/debug_small.png)
 
 After a specific button is pressed, the _bouncing scene_ transitions to the _credits scene_.
 
 The _credits scene_ clearly presents information about the programmer and the contributors to the program. An example of a credit scene (which is missing information about the programmer) is shown below.
-
-![Program credits scene.](images/credits_small.png)
 
 Pressing any key from the _credits scene_ exits the program.
 
